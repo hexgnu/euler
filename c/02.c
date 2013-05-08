@@ -8,21 +8,23 @@
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, 
 // find the sum of the even-valued terms.
 
-
-int main() {
+unsigned long sum_of_modded_fib_sequence(unsigned long max, int mod) {
   unsigned long x_1, x_2, sum, new_x_2;
   x_1 = 1;
   x_2 = 1;
   sum = 0;
-  new_x_2;
   
-  while (x_2 <= 4000000) {
-    if (x_2 % 2 == 0) {
+  while (x_2 <= max) {
+    if (x_2 % mod == 0) {
       sum += x_2;
-    }
+    } else {}
+    
     new_x_2 = x_1 + x_2;
     x_1 = x_2;
     x_2 = new_x_2;
   }
-  printf("SUM: %lu\n", sum);
+  return sum;
 }
+
+
+int main() { printf("SUM: %lu\n", sum_of_modded_fib_sequence(4000000, 2)); }
